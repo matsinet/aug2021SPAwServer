@@ -16,6 +16,7 @@ router.hooks({
         ? capitalize(params.page)
         : "Home";
     if (page === "Home") {
+      console.log(process.env);
       axios
         .get(
           `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.OPEN_WEATHER_MAP_API_KEY}&q=st.%20louis`
