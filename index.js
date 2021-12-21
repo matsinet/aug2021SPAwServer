@@ -16,7 +16,7 @@ router.hooks({
         ? capitalize(params.page)
         : "Home";
     if (page === "Home") {
-      console.log(process.env);
+      console.log(process.env.OPEN_WEATHER_MAP_API_KEY);
       axios
         .get(
           `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.OPEN_WEATHER_MAP_API_KEY}&q=st.%20louis`
@@ -31,7 +31,12 @@ router.hooks({
         })
         .catch(err => console.log(err));
     }
+    console.log("matsinet-page:", page);
     if (page === "Pizza") {
+      console.log(
+        "matsinet-process.env.PIZZA_PLACE_API_URL:",
+        process.env.PIZZA_PLACE_API_URL
+      );
       axios
         .get(`${process.env.PIZZA_PLACE_API_URL}`)
         .then(response => {
